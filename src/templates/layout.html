@@ -17,8 +17,22 @@
 <body>
     
     {% include 'includes/navbar.html' %}
+  
+
+            
+
+
+
     <div class = 'container containercss' >
 
+        {% if messages %}
+        
+        {% for message in messages %}
+            <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+         {% endfor %}
+     
+    {% endif %}
+    
         {% block body %}
         
         {% endblock body %}
