@@ -8,3 +8,10 @@ def index(request):
 
 def about(request):
    return render(request, 'about.html')
+
+def dashboard(request):
+   return render(request, 'dashboard.html')
+
+def addarticle(request):
+   return render(request, 'addarticle.html')
+   

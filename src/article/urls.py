@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import index,about
+from .views import dashboard,addarticle
 
 urlpatterns = [
    
-    path('create/', index,name='create'),
+    path('dashboard/', dashboard,name='dashboard'),
+    path('addarticle/', addarticle,name='addarticle'),
   
 ]

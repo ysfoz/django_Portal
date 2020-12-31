@@ -27,7 +27,10 @@
 
     <ul class="navbar-nav ml-auto">
       {% if request.user.is_authenticated %}
-      <!-- buraya dashboarda geleek -->
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'dashboard' %}">Control Panel</a>
+      </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'logout' %}">Log out</a>
       </li>

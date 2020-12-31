@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+    dashboard
+{% endblock title %}
+
+
+{% block body %}
+  <h3>Control Panel</h3>
+  <hr>
+
+  <p>
+      Welcome, {{ request.user.username}}
+  </p>
+  <hr>
+  <a class="btn btn-danger" href="{% url 'addarticle'%}">Add Article</a>
+
+
+
+    
+{% endblock body %}
+    
+    
