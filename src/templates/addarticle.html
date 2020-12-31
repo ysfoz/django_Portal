@@ -3,12 +3,25 @@
 {% block title %}
 
    addarticle
-   
+
 {% endblock title %}
 
 
 {% block body %}
-    <h3>Hallo</h3>
+{% load crispy_forms_tags %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% load crispy_forms_tags %}
+            {{ form|crispy}} 
+            
+            <br>
+            <button type="submit" class="btn btn-danger">Add Article</button>
+        </form>
+    </div>
+  </div>
 {% endblock body %}
     
     

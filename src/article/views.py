@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from.forms import ArticleForm
 
 
 # Create your views here.
@@ -13,5 +14,9 @@ def dashboard(request):
    return render(request, 'dashboard.html')
 
 def addarticle(request):
-   return render(request, 'addarticle.html')
+   form = ArticleForm()
+   context = {
+      'form':form
+   }
+   return render(request, 'addarticle.html',context)
    
