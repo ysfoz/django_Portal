@@ -13,6 +13,15 @@
          <p>You can share here all Articles about <span class = 'django'>Django</span>  </p>
         
     </div>
+
+    <p>
+        {% if request.user.is_authenticated %}
+        signed in {{ request.user.username}}
+        {% else %}
+        keine
+        {% endif %}
+
+    </p>
 {% endblock body %}
     
     

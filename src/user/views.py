@@ -98,7 +98,9 @@ def login_user(request):
      
 
 def logout_user(request):
-    return render(request, 'logout.html')
+    logout(request)
+    messages.success(request,'you loged out succesfuly')
+    return redirect('index')
 
 
 def register2(request):

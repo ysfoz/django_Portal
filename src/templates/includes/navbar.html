@@ -1,29 +1,46 @@
-
 {% block body %}
-    
 
-    
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="{% url 'index'  %}">Medium  Django</a>
-    
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'about' %}">About</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="">Articles</a>
-        </li>
-        
-      </ul>
+  <button
+    class="navbar-toggler navbar-toggler-right"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarCollapse"
+    aria-controls="navbarCollapse"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="{% url 'index'  %}">Medium Django</a>
 
-      
-      </ul>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'about' %}">About</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="">Articles</a>
+      </li>
+    </ul>
 
 
+    <ul class="navbar-nav ml-auto">
+      {% if request.user.is_authenticated %}
+      <!-- buraya dashboarda geleek -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+      </li>
+     {% else %}
+     
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'register' %}">Sign in</a>
+      </li>
+      {% endif%}
+    </ul>
+  </div>
 </nav>
 {% endblock body %}
