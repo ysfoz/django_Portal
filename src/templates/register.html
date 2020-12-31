@@ -8,13 +8,18 @@
 
 
 {% block body %}
+{% load crispy_forms_tags %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
     <h3>register</h3>
     <hr>
     <form action="" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy}}
        <br>
        <button type="submit" class="btn btn-danger">Join Us</button>
     </form>
+    </div>
+</div>
 {% endblock body %}
     

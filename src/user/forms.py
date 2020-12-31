@@ -28,9 +28,13 @@ class RegisterForm(forms.Form):
     
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=50,label='User Name')
-    password = forms.CharField(max_length=20,label ='Password', widget= forms.PasswordInput)
+    password = forms.CharField(max_length=20,label ='Password', widget= PasswordInput)
     
+    
+# bu yontem ile usercreation auth.forms icerisinden cagtrilir, sonrasinda model olarak default gelen
+# user modelinden alanlar olusturulur.
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username','password1','password2']
+        
