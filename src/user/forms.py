@@ -17,7 +17,7 @@ class RegisterForm(forms.Form):
         confirm = self.cleaned_data.get('confirm')
         
         if password and confirm and password != confirm:
-            raise forms.ValidationError('Passwords are not match')
+            raise ValidationError('Passwords are not match')
         
         values = {
             'username':username,
