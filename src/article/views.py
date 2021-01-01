@@ -26,7 +26,7 @@ def addarticle(request):
       article.author = request.user
       article.save()
       messages.success(request,'You added an article successfuly')
-      return redirect('index')
+      return redirect('dashboard')
    context = {
       'form':form
    }
@@ -39,5 +39,29 @@ def detail(request,id):
       'article': article
    }
    return render(request, 'detail.html',context)
+
+def update(request,id):
+   article =get_object_or_404(Article,id=id)
+   form = ArticleForm(request.POST or None,request.FILES or None ,instance=article)
+   if form.is_valid():
+      article = form.save(commit=False)
+      article.author = request.user
+      article.save()
+      messages.success(request,'You updated an article successfuly')
+      return redirect('dashboard')
+   context ={
+      'form':form
+   }
+   return render(request,'update.html',context)
+      
    
-   
+def delete(request,id):
+   article = get_object_or_404(Article,id=id)
+   if request.method == 'POST':
+      article.delete()
+      messages.success(request,'you deleted the article')
+      return redirect('dashboard')
+   context ={
+      'article':article
+   }   
+   return render(request,'delete.html',context)

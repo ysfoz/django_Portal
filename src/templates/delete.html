@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    delete
+{% endblock title %}
+
+
+{% block body %}
+    <p>Are you sure you want to delete "{{ article.title }}"?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'dashboard' %}">Cancel</a>
+        <input type="submit" value="Confirm">
+    </form>
+
+{% endblock body %}
+    
+    
