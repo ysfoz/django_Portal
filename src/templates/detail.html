@@ -30,8 +30,11 @@ detail
     <hr />
 
     <!-- Preview Image -->
-    <!-- <img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""> -->
-
+    
+    {% if article.article_image %}
+  
+    <img class="img-fluid rounded" src="{{article.article_image.url}}" alt="">
+    {% endif %}
     <hr />
 
     <!-- Post Content -->
