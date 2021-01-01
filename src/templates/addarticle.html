@@ -14,7 +14,8 @@
 
         <form action="" method="POST">
             {% csrf_token %}
-            {% load crispy_forms_tags %}
+            
+            {{ form.media }}
             {{ form|crispy}} 
             
             <br>

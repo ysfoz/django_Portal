@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'article.apps.ArticleConfig',
     'user.apps.UserConfig',
     'crispy_forms',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +127,15 @@ STATICFILES_DIRS = [
     
 ]
 
-# STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        "removePlugins": "stylesheetparser",
+        'allowedContent':True,
+        'width': '100%',
+    }
+}
+
