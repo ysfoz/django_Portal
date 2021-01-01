@@ -1,7 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from.forms import ArticleForm
 from django.contrib import messages
 from .models import Article
+
+
 
 
 # Create your views here.
@@ -11,7 +14,7 @@ def index(request):
 
 def about(request):
    return render(request, 'about.html')
-
+login_required(login_url='addarticle')
 def dashboard(request):
    articles = Article.objects.filter(author = request.user)
    context = {
