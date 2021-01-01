@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from.forms import ArticleForm
 from django.contrib import messages
 from .models import Article
@@ -31,4 +31,13 @@ def addarticle(request):
       'form':form
    }
    return render(request, 'addarticle.html',context)
+
+def detail(request,id):
+   # article = Article.objects.filter(id=id) # buraya .first() yazarsak html sayfasinda for dongusune gerek kalmiyor
+   article = get_object_or_404(Article, id = id)
+   context = {
+      'article': article
+   }
+   return render(request, 'detail.html',context)
+   
    
