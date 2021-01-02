@@ -10,6 +10,8 @@ class Article(models.Model):
     article_image = models.FileField(blank=True,null=True,verbose_name='You can add ann image for your article')
     def __str__(self):
         return self.title
+    class Meta:
+        ordering = ['-created_date']
     
 class Comment(models.Model):
     article=models.ForeignKey(Article,on_delete=models.CASCADE,related_name='comments')
@@ -19,3 +21,5 @@ class Comment(models.Model):
     
     def __str__(self):
         return self.comment_content
+    class Meta:
+        ordering = ['-comment_date']
