@@ -68,3 +68,18 @@ def delete(request,id):
       'article':article
    }   
    return render(request,'delete.html',context)
+
+def get_articles(request):
+   keyword =request.GET.get('keyword')
+   
+   if keyword:
+      articles =Article.objects.filter(title__contains = keyword)
+      context ={
+      'articles':articles
+   }
+      return render(request,'articles.html',context)
+   articles = Article.objects.all()
+   context ={
+      'articles':articles
+   }
+   return render(request,'articles.html',context)
