@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
+from django.urls import reverse
 from.forms import ArticleForm
 from django.contrib import messages
-from .models import Article
+from .models import Article, Comment
 
 
 
@@ -85,4 +86,16 @@ def get_articles(request):
    return render(request,'articles.html',context)
 
 def add_comment(request,id):
-   pass
+   article = get_object_or_404(Article,id = id)
+   
+   if request.method == 'POST':
+      comment_author =request.POST.get('comment_author')
+      comment_content = request.POST.get('comment_content')
+      
+      newComment = Comment(comment_content = comment_content,comment_author = comment_author)
+      
+      newComment.article = article
+      
+      newComment.save()
+      
+   return redirect(reverse('detail',kwargs={'id':id}))
