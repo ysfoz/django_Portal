@@ -83,3 +83,6 @@ def get_articles(request):
       'articles':articles
    }
    return render(request,'articles.html',context)
+
+def add_comment(request,id):
+   pass

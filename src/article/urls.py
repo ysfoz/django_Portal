@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth.decorators import login_required
-from .views import dashboard, addarticle, detail, update, delete ,get_articles
+from .views import dashboard, addarticle, detail, update, delete ,get_articles, add_comment
 
 
 urlpatterns = [
@@ -10,6 +10,7 @@ urlpatterns = [
     path('article/update/<int:id>',login_required(update,login_url='/user/login/'),name = 'update'),
     path('article/delete/<int:id>',login_required(delete,login_url='/user/login/'),name='delete'),
     path('article/<int:id>', detail , name='detail'),
-    path('',get_articles,name='articles')
+    path('',get_articles,name='articles'),
+    path('comment/<int:id>',add_comment,name='comment')
   
 ]
