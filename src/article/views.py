@@ -39,8 +39,10 @@ def addarticle(request):
 def detail(request,id):
    # article = Article.objects.filter(id=id) # buraya .first() yazarsak html sayfasinda for dongusune gerek kalmiyor
    article = get_object_or_404(Article, id = id)
+   comments = article.comments.all()
    context = {
-      'article': article
+      'article': article,
+      'comments':comments
    }
    return render(request, 'detail.html',context)
 
