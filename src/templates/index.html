@@ -12,7 +12,7 @@
     <div class="jumbotron text-center">
         {% if request.user.is_authenticated %}
         <h3 class="h1">Hi, nice to see here
-            <br>
+            
             <span class="h1 indexname">{{ request.user.username}}</span></h3>
         {% endif %}
         <h3 class="h1">Welcome to <span ><img class= 'indexicon' src="{% static 'images/icon6.png'%}"></span> Blog Page</h3>
@@ -21,7 +21,7 @@
     </div>
     <div >
     <div>
-        <img src="{% static 'images/index.png'%}" alt="" class="img-fluid">
+        <img style='max-height: 550px; width: 100%;'src="{% static 'images/index.png'%}" alt="" class="img-fluid">
     </div>
 
    

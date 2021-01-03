@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 
 {% block title %}
@@ -6,25 +7,58 @@ About
 {% endblock title %}
 
 {% block body %}
+<hr class="featurette-divider">
 
-<h3>About Us</h3>
-<p>
-    Django Central is an educational site providing content on Python programming
-    and web development to all the programmers and budding programmers across the
-    internet. The main goal of this site is to provide quality tips, tricks,
-    hacks, and other Programming resources that allows beginners to improve their
-    skills.
+<div class="row featurette">
+  <div class="col-md-7 abouttext" style="margin: auto auto;">
+    <h2 class="featurette-heading">Did you begin to learn Python.
+        <span class="text-muted">You need to help?</span>
+    </h2>
+    <p class="lead">Django Portal is an educational site providing content on Python programming
+        and web development to all the programmers and budding programmers across the
+        internet. The main goal of this site is to provide quality tips, tricks,
+        hacks, and other Programming resources that allows beginners to improve their
+        skills.
+    </p>
+  </div>
+  <div class="col-md-5">
+    <img class="featurette-image img-fluid mx-auto" src="{% static 'images/featurette-1.png'%}" alt="Generic placeholder image">
+  </div>
+</div>
 
-    The best ideas can change who we are. Medium is where those ideas take shape, take off, and spark powerful
-    conversations. We’re an open platform where 170 million readers come to find insightful and dynamic thinking. Here,
-    expert and undiscovered voices alike dive into the heart of any topic and bring new ideas to the surface. Our
-    purpose is to spread these ideas and deepen understanding of the world.
+<hr class="featurette-divider">
 
-    We’re creating a new model for digital publishing. One that supports nuance, complexity, and vital storytelling
-    without giving in to the incentives of advertising. It’s an environment that’s open to everyone but promotes
-    substance and authenticity. And it’s where deeper connections forged between readers and writers can lead to
-    discovery and growth. Together with millions of collaborators, we’re building a trusted and vibrant ecosystem fueled
-    by important ideas and the people who think about them.
-</p>
+<div class="row featurette">
+  <div class="col-md-7 push-md-5 abouttext" style="margin: auto auto;">
+    <h2 class="featurette-heading">Do you have curry about Django. <span class="text-muted">Here is for you.</span></h2>
+    <p class="lead">The best ideas can change who we are. Django Portal is where those ideas take shape, take off, and spark powerful
+        conversations.  Here,
+        expert and undiscovered voices alike dive into the heart of any topic and bring new ideas to the surface. Our
+        purpose is to spread these ideas and deepen understanding of the world.</p>
+  </div>
+  <div class="col-md-5 pull-md-7">
+    <img class="featurette-image img-fluid mx-auto" src="{% static 'images/featurette-2.png'%}" alt="Generic placeholder image">
+  </div>
+</div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-7 abouttext" style="margin: auto auto;">
+    <h2 class="featurette-heading">You don't know where should to beginn. <span class="text-muted">We can to help you.</span></h2>
+    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+  </div>
+  <div class="col-md-5">
+    <img class="featurette-image img-fluid mx-auto" src="{% static 'images/featurette-3.png'%}" alt="Generic placeholder image">
+  </div>
+</div>
+
+<hr class="featurette-divider">
+
+<!-- /END THE FEATURETTES -->
+
+
+
+
 
 {% endblock body %}

@@ -16,13 +16,25 @@
     filter: opacity(.7) drop-shadow(0 0 0 rgb(17, 177, 17)); 
 }
 .indexname{
-    color: #d12e49;
+    color: crimson;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
    font-weight: bold;
 }
-.footerstyle{
-    background-color: aquamarine;
-   
+.usercontrol {
+    background-color:crimson;
+    border-radius: 50px;
+    
+}
+.usercontrollink {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+/* .abouttext {
+    margin: auto auto; */
+
+#image_about {
+    height: 500px;
+    width: 500px;
 }
 
