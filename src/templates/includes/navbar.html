@@ -1,6 +1,6 @@
 {% block body %}
 {% load static %}
-
+{% url 'articles' as articles_url %}
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
   <button
     class="navbar-toggler navbar-toggler-right"
@@ -15,7 +15,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="{% url 'index'  %}"><img class= 'navbaricon' src="{% static 'images/icon5.png'%}"></a>
-  <a class="navbar-brand" href="{% url 'index'  %}">Medium Django</a>
+  <a class="navbar-brand" href="{% url 'index'  %}">Portal</a>
 
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
@@ -31,15 +31,28 @@
     <ul class="navbar-nav ml-auto">
       {% if request.user.is_authenticated %}
 
-      
-      <li class="nav-item active">
-        <a class="nav-link"> {{ request.user.username}}</a> <!-- todo buraya kullanici bilgileri icin sayfa eklenecek-->
-      </li>
+
+    
+
+    
+<li class="nav-item active " style = '{% if request.path != articles_url %} visibility: hidden; {% endif %}' >
+  <form class="form-inline my-2 my-lg-0">
+    {% csrf_token %} 
+    <input name = "keyword" class="form-control mr-sm-2" type="text" placeholder="Search" maxlength="64" >
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+
+</li>
+
+  
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'dashboard' %}">Control Panel</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+      </li>
+      <li class="nav-item active usercontrol">
+        <a class="nav-link usercontrollink"> {{ request.user.username.0 }}</a> <!-- todo buraya kullanici bilgileri icin sayfa eklenecek-->
       </li>
      {% else %}
      
