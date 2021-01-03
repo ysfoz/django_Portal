@@ -1,0 +1,28 @@
+
+
+
+.django{
+    background:#0C4B33;
+    color: white;
+    
+}
+
+.navbaricon{
+    
+    filter: opacity(.5) drop-shadow(0 0 0 rgb(41, 235, 41)); 
+    
+}
+.indexicon{
+    filter: opacity(.7) drop-shadow(0 0 0 rgb(17, 177, 17)); 
+}
+.indexname{
+    color: #d12e49;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+   font-weight: bold;
+}
+.footerstyle{
+    background-color: aquamarine;
+   
+}
+

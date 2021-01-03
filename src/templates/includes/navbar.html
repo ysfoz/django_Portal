@@ -1,4 +1,5 @@
 {% block body %}
+{% load static %}
 
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
   <button
@@ -10,8 +11,10 @@
     aria-expanded="false"
     aria-label="Toggle navigation"
   >
+  
     <span class="navbar-toggler-icon"></span>
   </button>
+  <a class="navbar-brand" href="{% url 'index'  %}"><img class= 'navbaricon' src="{% static 'images/icon5.png'%}"></a>
   <a class="navbar-brand" href="{% url 'index'  %}">Medium Django</a>
 
   <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -27,7 +30,11 @@
 
     <ul class="navbar-nav ml-auto">
       {% if request.user.is_authenticated %}
+
       
+      <li class="nav-item active">
+        <a class="nav-link"> {{ request.user.username}}</a> <!-- todo buraya kullanici bilgileri icin sayfa eklenecek-->
+      </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'dashboard' %}">Control Panel</a>
       </li>
@@ -47,3 +54,5 @@
   </div>
 </nav>
 {% endblock body %}
+
+

@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 
 {% block title %}
@@ -9,19 +10,21 @@
 {% block body %}
     
     <div class="jumbotron text-center">
-        <h3>Welcome to <span class = 'django'>Django</span> Blog Page</h3>
-         <p>You can share here all Articles about <span class = 'django'>Django</span>  </p>
+        {% if request.user.is_authenticated %}
+        <h3 class="h1">Hi, nice to see here
+            <br>
+            <span class="h1 indexname">{{ request.user.username}}</span></h3>
+        {% endif %}
+        <h3 class="h1">Welcome to <span ><img class= 'indexicon' src="{% static 'images/icon6.png'%}"></span> Blog Page</h3>
+         <p>You can share here all Articles about <span ><img class= 'indexicon' src="{% static 'images/icon5.png'%}"></span>  </p>
         
     </div>
+    <div >
+    <div>
+        <img src="{% static 'images/index.png'%}" alt="" class="img-fluid">
+    </div>
 
-    <p>
-        {% if request.user.is_authenticated %}
-        signed in {{ request.user.username}}
-        {% else %}
-        keine
-        {% endif %}
-
-    </p>
+   
 {% endblock body %}
     
     
