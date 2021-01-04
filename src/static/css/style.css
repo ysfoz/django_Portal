@@ -24,11 +24,14 @@
 .usercontrol {
     background-color:crimson;
     border-radius: 50px;
+   
     
 }
 .usercontrollink {
     margin-left: 7px;
     margin-right: 7px;
+   
+    
 }
 /* .abouttext {
     margin: auto auto; */

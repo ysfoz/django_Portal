@@ -45,14 +45,14 @@
 </li>
 
   
+<li class="nav-item active usercontrol" style="margin-left: 10px;">
+  <a class="nav-link usercontrollink" href="{% url 'dashboard' %}"> {{ request.user.username.0 }}</a> 
+</li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'dashboard' %}">Control Panel</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'logout' %}">Log out</a>
-      </li>
-      <li class="nav-item active usercontrol">
-        <a class="nav-link usercontrollink"> {{ request.user.username.0 }}</a> <!-- todo buraya kullanici bilgileri icin sayfa eklenecek-->
       </li>
      {% else %}
      

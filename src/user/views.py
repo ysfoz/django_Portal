@@ -1,8 +1,8 @@
 
-from django.shortcuts import render, redirect
+from django.shortcuts import get_list_or_404, get_object_or_404, render, redirect
 from .forms import RegisterForm, LoginForm, CreateUserForm
 from django.contrib import messages
-
+from article.models import Article
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 # Create your views here.
@@ -114,4 +114,5 @@ def register2(request):
         'form':form
     }
     return render(request,'register.html',context)
-    
+
+  

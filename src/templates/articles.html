@@ -6,11 +6,11 @@ articles
 
 {% block body %}
 
-<!-- <div class="jumbotron">
-  <h1>Marketing stuff!</h1>
-  <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
-  <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
-</div> -->
+<div class="jumbotron">
+  <h1>All Articles</h1>
+  <p class="lead">You can share here all Articles or what you have about Django, so everything will eisier for everyone!!!</p>
+  <p><a class="btn btn-lg btn-primary" href="{% url 'dashboard' %}" role="button">Let start to share</a></p>
+</div>
 
 
 
@@ -29,11 +29,11 @@ articles
     <p>{{ article.content|safe|truncatewords:20}} </p>
     {% if article.article_image %}
     
-    <img style=" width:100%; height:225px"; " class="bd-placeholder-img card-img-top" src="{{article.article_image.url}}" alt="Card image cap">
+    <img style=" width:100%; height:225px";  class="bd-placeholder-img card-img-top" src="{{article.article_image.url}}" alt="Card image cap">
   
     {% else %}
     
-      <img style="width: 100%;max-height: 100%;" src="{% static 'images/index.png'%}" alt="Card image cap">
+      <img style=" width:100%; height:225px";  class="bd-placeholder-img card-img-top" src="{% static 'images/index.png'%}" alt="Card image cap">
     
     {% endif %}
     <p><a style='margin-top: 10px;float: right; margin-bottom: 20px;' class="btn btn-primary" href="{% url 'detail' article.id%}" role="button">View details &raquo;</a></p>
