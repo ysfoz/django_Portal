@@ -4,6 +4,7 @@ from django.urls import reverse
 from.forms import ArticleForm
 from django.contrib import messages
 from .models import Article, Comment
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 
@@ -91,7 +92,15 @@ def get_articles(request):
       'articles':articles
    }
       return render(request,'articles.html',context)
-   articles = Article.objects.all()
+   article_list = Article.objects.all()
+   page = request.GET.get('page', 1)
+   paginator = Paginator(article_list, 9)
+   try:
+      articles = paginator.page(page)
+   except PageNotAnInteger:
+      articles = paginator.page(1)
+   except EmptyPage:
+      articles = paginator.page(paginator.num_pages)
    context ={
       'articles':articles
    }
