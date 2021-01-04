@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from article.views import index , about
+from article.views import index , about, get_privacy, get_terms
 from django.conf import settings
 from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('privacy/',get_privacy,name='privacy'),
+    path('terms/',get_terms,name='terms'),
     path('', index,name='index'),
     path('about/', about,name='about'),
     path('articles/', include('article.urls')),

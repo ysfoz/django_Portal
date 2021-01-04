@@ -10,8 +10,16 @@
   <h3>Control Panel</h3>
   <hr>
 
-  <p>
-      Welcome, {{ request.user.username}}
+  <p style= 'font-size: x-large;'>
+      {{ request.user.username|title}},
+       <br>
+      {% if articles|length > 0 %}
+      you have {{ articles|length}} articles
+      {% else %}
+      You have No article.  <br> 
+      If you want that can start to share right now.
+      {% endif %}
+         
   </p>
   <hr>
 

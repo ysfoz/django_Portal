@@ -15,6 +15,14 @@ def index(request):
 
 def about(request):
    return render(request, 'about.html')
+
+def get_privacy(request):
+   return render(request,'privacy.html')
+
+def get_terms(request):
+   return render(request,'terms.html')
+
+
 login_required(login_url='addarticle')
 def dashboard(request):
    articles = Article.objects.filter(author = request.user)
