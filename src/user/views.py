@@ -88,7 +88,7 @@ def login_user(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             login(request,user)
-            messages.success(request,'you loged in successfuly')
+            messages.success(request,'You logged in successfully')
             return redirect('index')
         messages.warning(request,'Username or Password is incorrect')
         return render(request,'login.html',context)
@@ -99,7 +99,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request,'you loged out succesfuly')
+    messages.success(request,'You logged out succesfully')
     return redirect('index')
 
 
@@ -108,7 +108,7 @@ def register2(request):
     if form.is_valid():
         form.save()
         user = form.cleaned_data.get('username')
-        messages.success(request,'You signed in successfully' + ' ' + user)
+        messages.success(request,'You signed in successfully' + ' ' + user, 'Welcome to our Comminity')
         return redirect('login')
     context ={
         'form':form

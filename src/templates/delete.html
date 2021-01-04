@@ -11,8 +11,9 @@
 
     <form action="" method="POST">
         {% csrf_token %}
-        <a href="{% url 'dashboard' %}">Cancel</a>
-        <input type="submit" value="Confirm">
+        <a href="{% url 'dashboard' %}"><button type="button" class="btn btn-primary">Cancel</button></a>
+        <button type="submit" class="btn btn-danger">Confirm</button>
+        
     </form>
 
 {% endblock body %}

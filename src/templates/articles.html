@@ -26,7 +26,10 @@ articles
       <a href="#">{{ article.author  }}</a>
     </p>
     <p>{{ article.created_date }}</p>
-    <p>{{ article.content|safe|truncatewords:20}} </p>
+    <div style="min-height: 100px; max-width: 100%;">
+      <p >{{ article.content|safe|truncatewords:20}} </p>
+
+    </div>
     {% if article.article_image %}
     
     <img style=" width:100%; height:225px";  class="bd-placeholder-img card-img-top" src="{{article.article_image.url}}" alt="Card image cap">

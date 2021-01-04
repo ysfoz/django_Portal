@@ -25,12 +25,14 @@ def dashboard(request):
 
 def addarticle(request):
    form = ArticleForm(request.POST or None, request.FILES or None)
-   if form.is_valid():
+   if form.is_valid() :
       article = form.save(commit=False)
-      article.author = request.user
-      article.save()
-      messages.success(request,'You added an article successfuly')
-      return redirect('dashboard')
+      if len(article.content) > 40:
+         article.author = request.user
+         article.save()
+         messages.success(request,'You added an article successfuly')
+         return redirect('dashboard')
+      messages.warning(request,'You must write at least 40 words')
    context = {
       'form':form
    }
@@ -53,7 +55,7 @@ def update(request,id):
       article = form.save(commit=False)
       article.author = request.user
       article.save()
-      messages.success(request,'You updated an article successfuly')
+      messages.success(request,'You update an article successfully!')
       return redirect('dashboard')
    context ={
       'form':form
@@ -65,7 +67,7 @@ def delete(request,id):
    article = get_object_or_404(Article,id=id)
    if request.method == 'POST':
       article.delete()
-      messages.success(request,'you deleted the article')
+      messages.success(request,'You deleted an article successfully!')
       return redirect('dashboard')
    context ={
       'article':article
@@ -97,7 +99,9 @@ def add_comment(request,id):
       newComment = Comment(comment_content = comment_content,comment_author = comment_author)
       
       newComment.article = article
-      
-      newComment.save()
+      if newComment.comment_content and newComment.comment_author:
+         newComment.save()
+      else:
+         messages.warning(request,'You must enter a name and a comment')
       
    return redirect(reverse('detail',kwargs={'id':id}))
