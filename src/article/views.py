@@ -71,7 +71,7 @@ def update(request,id):
    }
    return render(request,'update.html',context)
       
-   
+   # todo buraya ve update e if request.user.id != article.author.id eklenecek
 def delete(request,id):
    article = get_object_or_404(Article,id=id)
    if request.method == 'POST':
